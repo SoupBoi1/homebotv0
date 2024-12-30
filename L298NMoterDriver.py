@@ -43,7 +43,7 @@ class L298NMoterDriver():
     def edit_PWM_F(updated):
         pwm_frequncy = updated
         update_PWM_F()
-        
+
     def update_PWM_F():
         enA_pwm.ChangeFrequency(pwm_frequncy)
         enB_pwm.ChangeFrequency(pwm_frequncy)
@@ -70,24 +70,31 @@ class L298NMoterDriver():
     def config_forwardA():
         GPIO.output(PIN_in1,False)
         GPIO.output(PIN_in2,True)
+
     def config_forwardB():
         GPIO.output(PIN_in3,False)
         GPIO.output(PIN_in4,True)
+
     def config_backwardA():
         GPIO.output(PIN_in1,True)
         GPIO.output(PIN_in2,False)
+
     def config_backwardB():
         GPIO.output(PIN_in3,True)
         GPIO.output(PIN_in4,False)
+
     def config_forward():
         config_forwardA()
         config_forwardB()
+
     def config_backward():
         config_backwardA()
         config_backwardB()
+
     def config_left():
         config_backwardA()
         config_forwardB()
+        
     def config_right():
         config_forwardA()
         config_backwardB()
