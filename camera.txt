@@ -1,0 +1,2 @@
+rpicam-vid -t 0 --inline -o udp://192.168.1.120:5000
+ffplay udp://192.168.1.120:5000 -fflags nobuffer -flags low_delay -framedrop
