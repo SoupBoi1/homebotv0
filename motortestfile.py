@@ -89,36 +89,14 @@ while 1:
   print("You pressed", x)
   if x == "w":
     print("forward")
-    init()
-    config_forward()
-    enA_pwm.start(100)
-    enB_pwm.start(100)
-    pwd_dB = 100
-    enB_pwm.ChangeDutyCycle(pwd_dB)
-    pwd_dA = 100
-    enA_pwm.ChangeDutyCycle(pwd_dA)
-    print("forward")
+    forward(1)
   if x == "s":
-    enA_pwm.stop()
-    enB_pwm.stop()
-    enA_pwm.start(100)
-    enB_pwm.start(100) 
     backward(1)
   if x =="d":
-    pwd_dB -= 10
-    print("left: ",pwd_dB)
-    enB_pwm.ChangeDutyCycle(pwd_dB)
-    pwd_dA = 100
-    enA_pwm.ChangeDutyCycle(pwd_dA)
-    #left(.1)
-    print("left",)
-  if x =="a":
-    pwd_dA -= 10
-    print("right: ",pwd_dA)
-    enB_pwm.ChangeDutyCycle(pwd_dB)
-    pwd_dB = 100
-    enA_pwm.ChangeDutyCycle(pwd_dA)
-    #right(.1)
+    left(.1)
+    print("left")
+  if x =="a":    
+    right(.1)
     print("right")
   if x[0] == "t":
     init()
