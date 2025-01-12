@@ -42,11 +42,11 @@ def config_backward():
     
 def forward(tf):
     init()
-    enA_pwm.start(pwd_dA)
-    enB_pwm.start(pwd_dB)
+    #enA_pwm.start(pwd_dA)
+    #enB_pwm.start(pwd_dB)
     config_forward()
-    #time.sleep(tf)
-    #GPIO.cleanup()
+    time.sleep(tf)
+    GPIO.cleanup()
     
 def backward(tf):
     init()
@@ -89,14 +89,14 @@ while 1:
   print("You pressed", x)
   if x == "w":
     print("forward")
-    forward(1)
+    forward(2)
   if x == "s":
-    backward(1)
+    backward(2)
   if x =="d":
-    left(.1)
+    left(.3)
     print("left")
   if x =="a":    
-    right(.1)
+    right(.3)
     print("right")
   if x[0] == "t":
     init()
