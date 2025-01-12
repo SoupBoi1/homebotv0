@@ -8,8 +8,8 @@ pygame.init()
 pygame.joystick.init()
 joystick = pygame.joystick.Joystick(0)
 joystick.init()
-turn =[0.0,0.0]
-
+contols_turn =[0.0,0.0]
+contols_acc =0.0
 accel_data = mpu.get_accel_data()
 
 gyro_data = mpu.get_gyro_data()
@@ -18,8 +18,12 @@ while(True):
 	for event in pygame.event.get():
 		if event.type == pygame.JOYAXISMOTION:
 			if event.axis <= 1:
-				turn[event.axis] =event.value
-	print(f"[{round(turn[0],1)},{round(turn[1],1)}]") 
+				contols_turn[event.axis] =event.value
+			if event.axis == 4:
+				contols_acc = (event.value+1.0)/2.0
+			if event.axis == 3:
+				contols_acc = -(event.value+1.0)/2.0
+	print(f"[{round(contols_turn[0],1)},{round(contols_turn[1],1)}] speed: {contols_acc}") 
 	
 	accel_data = mpu.get_accel_data()
 	gyro_data = mpu.get_gyro_data()
