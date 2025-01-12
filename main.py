@@ -1,5 +1,6 @@
 from mpu6050 import mpu6050 
 import time 
+import pygame
 
 mpu = mpu6050(0x68)
 
