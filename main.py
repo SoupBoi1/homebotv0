@@ -20,9 +20,9 @@ while(True):
 			if event.axis <= 1:
 				contols_turn[event.axis] =event.value
 			if event.axis == 4:
-				contols_acc = (event.value+1.0)/2.0
+				contols_acc = (round(event.value,1)+1.0)/2.0
 			if event.axis == 3:
-				contols_acc = -(event.value+1.0)/2.0
+				contols_acc = -(round(event.value,1)+1.0)/2.0
 	print(f"[{round(contols_turn[0],1)},{round(contols_turn[1],1)}] speed: {contols_acc}") 
 	
 	accel_data = mpu.get_accel_data()
