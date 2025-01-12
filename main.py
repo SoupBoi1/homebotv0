@@ -1,6 +1,5 @@
 from mpu6050 import mpu6050 
 import time 
-from UserInput import UserInput
 
 mpu = mpu6050(0x68)
 
