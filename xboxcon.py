@@ -9,13 +9,14 @@ turn =[0.0,0.0]
 while True:
     for event in pygame.event.get():
         if event.type == pygame.JOYAXISMOTION:
-            if event.axis == 1:
+            if event.axis == 0:
                 turn[0] =event.value
-            if event.axis ==0:
+            if event.axis ==1:
                 turn[1] =event.value
             #print(f"Axis {event.axis} value: {event.value}")
         elif event.type == pygame.JOYBUTTONDOWN:
             print(f"Button {event.button} pressed")
         elif event.type == pygame.JOYBUTTONUP:
             print(f"Button {event.button} released")
-    print(turn)
+    print(f"[{round(turn[0],1)},{round(turn[1],1)}]") 
+
