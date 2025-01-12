@@ -19,6 +19,7 @@ class UserInput:
                 print(f"Button {event.button} pressed")
             elif event.type == pygame.JOYBUTTONUP: # down is -1
                 print(f"Button {event.button} released")
+        return RawInput
 
 
 
