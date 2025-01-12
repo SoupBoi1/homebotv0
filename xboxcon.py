@@ -15,5 +15,4 @@ while True:
             print(f"Button {event.button} pressed")
         elif event.type == pygame.JOYBUTTONUP:
             print(f"Button {event.button} released")
-    print(f"[{round(turn[0],1)},{round(turn[1],1)}]") 
 
