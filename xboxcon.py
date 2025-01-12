@@ -8,7 +8,7 @@ joystick.init()
 turn =[0.0,0.0]
 while True:
     for event in pygame.event.get():
-    	if event.type == pygame.JOYAXISMOTION:
+        if event.type == pygame.JOYAXISMOTION:
             if event.axis == 1:
                 turn[0] =event.value
             if event.axis ==0:
@@ -18,4 +18,4 @@ while True:
             print(f"Button {event.button} pressed")
         elif event.type == pygame.JOYBUTTONUP:
             print(f"Button {event.button} released")
-	print(turn)
+    print(turn)
