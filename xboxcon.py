@@ -6,6 +6,8 @@ pygame.joystick.init()
 joystick = pygame.joystick.Joystick(0)
 joystick.init()
 turn =[0.0,0.0]
+
+
 while True:
     for event in pygame.event.get():
         if event.type == pygame.JOYAXISMOTION:
