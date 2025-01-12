@@ -1,0 +1,19 @@
+xbox controll,name,type,value and range
+A button,0,Button,pressed/released
+B button,1,Button,pressed/released
+X button,3,Button,pressed/released
+Y button,4,Button,pressed/released
+LB button,6,Button,pressed/released
+RB button,7,Button,pressed/released
+meanu button 1,10,Button,pressed/released
+meanu button 2,11,Button,pressed/released
+LS button,13,Button,pressed/released
+RS button,14,Button,pressed/released
+LS Y,0,Axis,-1.0 to 1.0
+LS X,1,Axis,-1.0 to 1.0
+RS Y,2,Axis,-1.0 to 1.0
+RS X,3,Axis,-1.0 to 1.0
+RT,4,Axis,-1.0 to 1.0
+LT,5,Axis,-1.0 to 1.0
+,,,
+,,,
