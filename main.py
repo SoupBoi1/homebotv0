@@ -5,7 +5,7 @@ from L298NMoterDriver import L298NMoterDriver as motor
 import ControlerTranslator
 import sonar 
 import os
-os.system("rpicam-vid -t 0 --inline -o udp://192.168.1.120:5000")
+#os.system("rpicam-vid -t 0 --inline -o udp://192.168.1.120:5000")
 mpu = mpu6050(0x68)
 
 pygame.init()
@@ -39,9 +39,10 @@ try:
 					motor.config_backward()
 			elif event.type == pygame.JOYBUTTONUP:
 				if event.button ==4:
+						print(sonar.getDistance())
 						contols_t = not contols_t
 				print(f"Button {event.button} released")
-		print(f"[{round(contols_turn[0],1)},{round(contols_turn[1],1)}] speed: {contols_acc_1D}") 
+		print(f"[{round(contols_turn[0],1)},{round(contols_turn[1],1)}] speed: {contols_acc[0]+contols_acc[1]}") 
 		motor._pwm_d = ControlerTranslator.get(contols_turn,contols_acc[0]+contols_acc[1],100)
 		#motor.edit_PWM_D([contols_acc[1]*100.0,contols_acc[0]*100.0])motor._pwm_d()
 		print(motor._pwm_d)
@@ -50,12 +51,11 @@ try:
 		#        motor.config_backward()
 		#else:
 		#    motor.config_forward()
-		sonar.getDistance()
 		accel_data = mpu.get_accel_data()
 		gyro_data = mpu.get_gyro_data()
 		print(mpu.get_temp())
-		print(f" acc: {accel_data['x']}, {accel_data['y']}, {accel_data['z']}")
-		print(f" gyro: {gyro_data['x']}, {gyro_data['y']}, {gyro_data['z']}")
+		print(f"acc: {accel_data['x']}, {accel_data['y']}, {accel_data['z']}")
+		print(f"gyro: {gyro_data['x']}, {gyro_data['y']}, {gyro_data['z']}\n")
 		time.sleep(.1)
 except KeyboardInterrupt:
         GPIO.cleanup()

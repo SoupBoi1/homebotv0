@@ -14,12 +14,12 @@ def get(contols_turn,contols_acc_1D,speed=100):
     TmotorB =0
     power = (contols_acc_1D%1.001)
     if contols_turn[0] <-0.1:
-        print("left",power)
+        #print("left",power)
         TmotorA = (-abs(contols_turn[0])+1)
         TmotorA = clamp(TmotorA,0.0,1.0)
         TmotorB= 1.0
     elif contols_turn[0] >0.1:
-        print("right",power)
+        #print("right",power)
         TmotorB = (-abs(contols_turn[0])+1.0)
         TmotorB = clamp(TmotorB,0.0,1.0)
         TmotorA =1.0

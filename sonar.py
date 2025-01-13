@@ -12,10 +12,12 @@ def init():
 
 def getDistance():
     GPIO.output(PIN_TRIGGER, GPIO.LOW)
-    print("Calculating distance")
+    #print("Calculating distance")
     GPIO.output(PIN_TRIGGER, GPIO.HIGH)
     time.sleep(0.00001)
     GPIO.output(PIN_TRIGGER, GPIO.LOW)
+    pulse_start_time =0.0
+    pulse_end_time =0.0
     while GPIO.input(PIN_ECHO)==0:
         pulse_start_time = time.time()
     while GPIO.input(PIN_ECHO)==1:
