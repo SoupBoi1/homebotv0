@@ -2,7 +2,7 @@ from mpu6050 import mpu6050
 import time 
 import pygame
 from L298NMoterDriver import L298NMoterDriver as motor
-from ControlerTranslator import ControlerTranslator as ct
+import ControlerTranslator
 
 mpu = mpu6050(0x68)
 
@@ -41,7 +41,7 @@ while(True):
 					contols_t = not contols_t
 			print(f"Button {event.button} released")
 	print(f"[{round(contols_turn[0],1)},{round(contols_turn[1],1)}] speed: {contols_acc}") 
-	motor._pwm_d = ControlerTranslator.get(contols_turn,contols_acc_1D)
+	motor._pwm_d = ControlerTranslator.get(contols_turn,contols_acc_1D,100)
 	#motor._pwm_d=[contols_acc[0]*100.0,contols_acc[1]*100.0]
 	#motor.edit_PWM_D([contols_acc[1]*100.0,contols_acc[0]*100.0])motor._pwm_d()
 	print(motor._pwm_d)
