@@ -40,7 +40,7 @@ while(True):
 			if event.button ==4:
 					contols_t = not contols_t
 			print(f"Button {event.button} released")
-	print(f"[{round(contols_turn[0],1)},{round(contols_turn[1],1)}] speed: {contols_acc}") 
+	print(f"[{round(contols_turn[0],1)},{round(contols_turn[1],1)}] speed: {contols_acc_1D}") 
 	motor._pwm_d = ControlerTranslator.get(contols_turn,contols_acc_1D,100)
 	#motor._pwm_d=[contols_acc[0]*100.0,contols_acc[1]*100.0]
 	#motor.edit_PWM_D([contols_acc[1]*100.0,contols_acc[0]*100.0])motor._pwm_d()
