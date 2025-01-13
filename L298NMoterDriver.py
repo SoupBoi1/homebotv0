@@ -87,8 +87,8 @@ class L298NMoterDriver:
         GPIO.output(L298NMoterDriver.PIN_in4,False)
 
     def config_forward():
-        GPIO.output(L298NMoterDriver.PIN_in1,True)
-        GPIO.output(L298NMoterDriver.PIN_in1,True)
+        L298NMoterDriver.config_forwardA()
+        L298NMoterDriver.config_forwardB()
 
     def config_backward():
         L298NMoterDriver.config_backwardA()
