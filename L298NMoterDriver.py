@@ -1,13 +1,14 @@
 import RPi.GPIO as GPIO
 
 class L298NMoterDriver:
-
     PIN_enA = 12
     PIN_enB = 13
     pwm_frequncy = 1000
     pwm_duty = 100
-    #pwm_enA= GPIO.PWM(PIN_enA,pwm_frequncy)
-    #pwm_enB = GPIO.PWM(PIN_enB,pwm_frequncy)
+    enA_pwm =None
+    enB_pwm = None
+    #enA_pwm= GPIO.PWM(PIN_enA,pwm_frequncy)
+    #enB_pwm = GPIO.PWM(PIN_enB,pwm_frequncy)
     _pwm_d=[100,100] #index 0 is A suty cycle and index 1 is B cycle
     
     PIN_in1 = 24
@@ -57,9 +58,11 @@ class L298NMoterDriver:
         GPIO.setup(L298NMoterDriver.PIN_in4,GPIO.OUT)
         
 
-        if L298NMoterDriver.PWM_enable:
+        if L298NMoterDriver.pwm_enable:
             GPIO.setup(L298NMoterDriver.PIN_enA,GPIO.OUT)
             GPIO.setup(L298NMoterDriver.PIN_enB,GPIO.OUT)
+            L298NMoterDriver.enA_pwm= GPIO.PWM(L298NMoterDriver.PIN_enA,L298NMoterDriver.pwm_frequncy)
+            L298NMoterDriver.enB_pwm= GPIO.PWM(L298NMoterDriver.PIN_enB,L298NMoterDriver.pwm_frequncy)
             L298NMoterDriver.start()
         else:
             L298NMoterDriver.stop()
@@ -68,7 +71,7 @@ class L298NMoterDriver:
         GPIO.setwarnings(False)
 
     def config_forwardA():
-        GPIO.output(L298NMoterDriver.config_backwardPIN_in1,False)
+        GPIO.output(L298NMoterDriver.PIN_in1,False)
         GPIO.output(L298NMoterDriver.PIN_in2,True)
 
     def config_forwardB():
@@ -84,8 +87,8 @@ class L298NMoterDriver:
         GPIO.output(L298NMoterDriver.PIN_in4,False)
 
     def config_forward():
-        L298NMoterDriver.config_forwardA()
-        L298NMoterDriver.config_forwardB()
+        GPIO.output(L298NMoterDriver.PIN_in1,True)
+        GPIO.output(L298NMoterDriver.PIN_in1,True)
 
     def config_backward():
         L298NMoterDriver.config_backwardA()

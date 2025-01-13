@@ -1,7 +1,7 @@
 from mpu6050 import mpu6050 
 import time 
 import pygame
-import L298NMoterDriver as motor
+from L298NMoterDriver import L298NMoterDriver as motor
 
 mpu = mpu6050(0x68)
 
@@ -32,10 +32,10 @@ while(True):
 				contols_acc[1] = (round(event.value,1)+1.0)/2.0
 	print(f"[{round(contols_turn[0],1)},{round(contols_turn[1],1)}] speed: {contols_acc}") 
 	
-	motor._pwm_d=contols_acc*100.0
-	motor.edit_PWM_D(contols_acc*100.0)
+	motor._pwm_d=[contols_acc[0]*100.0,contols_acc[1]*100.0]
+	motor.edit_PWM_D([contols_acc[0]*100.0,contols_acc[1]*100.0])
 	motor.update_PWM_D()
-	motor.config_forwardA()
+	motor.config_forward()
 	accel_data = mpu.get_accel_data()
 	gyro_data = mpu.get_gyro_data()
 	print(mpu.get_temp())
