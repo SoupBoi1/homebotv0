@@ -20,7 +20,7 @@ sonar.init()
 contols_turn =[0.0,0.0]
 contols_acc =[0.0,0.0]
 contols_t = False
-
+dis = 0.0
 accel_data = mpu.get_accel_data()
 
 gyro_data = mpu.get_gyro_data()
@@ -39,7 +39,7 @@ try:
 					motor.config_backward()
 			elif event.type == pygame.JOYBUTTONUP:
 				if event.button ==4:
-						print(sonar.getDistance())
+						dis = sonar.getDistance()
 						contols_t = not contols_t
 				print(f"Button {event.button} released")
 		print(f"[{round(contols_turn[0],1)},{round(contols_turn[1],1)}] speed: {contols_acc[0]+contols_acc[1]}") 
@@ -51,6 +51,7 @@ try:
 		#        motor.config_backward()
 		#else:
 		#    motor.config_forward()
+		print(f"Distance: {dis} cm")
 		accel_data = mpu.get_accel_data()
 		gyro_data = mpu.get_gyro_data()
 		print(mpu.get_temp())
