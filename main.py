@@ -4,7 +4,8 @@ import pygame
 from L298NMoterDriver import L298NMoterDriver as motor
 import ControlerTranslator
 import sonar 
-
+import os
+os.system("rpicam-vid -t 0 --inline -o udp://192.168.1.120:5000")
 mpu = mpu6050(0x68)
 
 pygame.init()
