@@ -44,7 +44,7 @@ while(True):
 	motor._pwm_d = ControlerTranslator.get(contols_turn,contols_acc_1D)
 	#motor._pwm_d=[contols_acc[0]*100.0,contols_acc[1]*100.0]
 	#motor.edit_PWM_D([contols_acc[1]*100.0,contols_acc[0]*100.0])motor._pwm_d()
-
+	print(motor._pwm_d)
 	motor.update_PWM_D()
 	#if contols_t:
     #        motor.config_backward()
